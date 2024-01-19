@@ -3,11 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacket <jacket@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 16:22:47 by jacket            #+#    #+#             */
-/*   Updated: 2024/01/03 16:29:17 by jacket           ###   ########.fr       */
+/*   Created: 2024/01/12 17:56:18 by gmoulin           #+#    #+#             */
+/*   Updated: 2024/01/12 19:27:42 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_putchar(int c)
+{
+	write(1, &c, 1);
+}
+

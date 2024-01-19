@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacket <jacket@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 16:22:22 by jacket            #+#    #+#             */
-/*   Updated: 2024/01/03 16:34:45 by jacket           ###   ########.fr       */
+/*   Created: 2024/01/12 17:56:02 by gmoulin           #+#    #+#             */
+/*   Updated: 2024/01/12 19:30:20 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <stdarg.h>
 
 /* Functions */
-int	ft_printf(const char *, ...);
+int		ft_printf(const char *, ...);
+void	ft_putchar(int c);
 
 #endif
