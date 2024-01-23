@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jacket <jacket@student.42.fr>              +#+  +:+       +#+         #
+#    By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 16:17:20 by jacket            #+#    #+#              #
-#    Updated: 2024/01/03 16:31:15 by jacket           ###   ########.fr        #
+#    Updated: 2024/01/23 19:14:39 by gmoulin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,11 @@ CC			= cc
 
 CFLAGS		= -Werror -Wextra -Wall
 
-SRC			=
-
-BONUS		=
+SRC			= ft_printf_utils.c ft_printf.c
 
 INCLUDE		= -I ./ft_printf
 
 OBJ			= $(SRC:.c=.o)
-
-BONUS_OBJ	= $(BONUS:.c=.o)
 
 #COLORS
 C_GOOD		=	"\033[32mSUCCESS"
@@ -34,21 +30,18 @@ C_WHIT		=	"\033[0m [$(NAME)]"
 C_BLUE		=	"\033[34;1mCompiling"
 
 $(NAME) :	$(OBJ)
-				@$(CC) $(CFLAGS) -c $(SRC) $(INCLUDE)
-				@ar rc $(NAME) $(OBJ)
-				@ranlib $(NAME)
-				@echo $(C_BLUE) $(C_WHIT) $(C_GOOD)
+#				@$(CC) $(CFLAGS) -c $(SRC) $(INCLUDE)
+				@ar rcs $(NAME) $(OBJ)
+#				@ranlib $(NAME)
+#				@echo $(C_BLUE) $(C_WHIT) $(C_GOOD)
 
 all:		$(NAME)
 
-bonus:		$(BONUS_OBJ)
-				@$(CC) $(CFLAGS) -c $(BONUS) $(INCLUDE)
-				@ar rc $(NAME) $(BONUS_OBJ)
-				@ranlib $(NAME)
-				@echo $(C_BLUE) $(C_WHIT) $(C_GOOD)
+.c.o:
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean:
-				@rm -f $(OBJ) $(BONUS_OBJ)
+				@rm -f $(OBJ)
 
 fclean:	clean
 				@rm -f $(NAME)
