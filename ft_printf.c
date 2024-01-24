@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:56:28 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/01/23 20:21:35 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:11:02 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	check_format(char c, va_list args)
 		return (ft_putnbr_base(va_arg(args, unsigned int), 16, "0123456789ABCDEF"));
 	else if (c == '%') //print '%'
 		return (ft_putchar('%'));
+	return (0);
 }
 
 
@@ -59,8 +60,9 @@ int	ft_printf(const char *format, ...)
 	return (length);
 }
 
-/*int main()
+int main()
 {
-	ft_printf("the hex code for 42 is %x and in big hex it's %X.\n", 42, 42);
-	printf("the hex code for 42 is %x and in big hex it's %X.\n", 42, 42);
-}*/
+	int a = ft_printf("%c %c.\n", 0, '0');
+	int b = printf("%c %c.\n", 0, '0');
+	printf("%d\n%d\n", a, b);
+}

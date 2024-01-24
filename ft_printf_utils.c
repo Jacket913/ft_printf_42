@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:56:18 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/01/23 20:22:20 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:04:30 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putchar(int c)
 {
-	return(write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 int	ft_putstr(char *s)
@@ -72,5 +72,5 @@ int	ft_print_ptr(void *ptr)
 	if (!ptr)
 		return (ft_putstr("(nil)"));
 	ft_putstr("0x");
-	return(ft_putnbr_base((unsigned long) ptr, 16, "0123456789abcdef") + 2);
+	return (ft_putnbr_base((unsigned long) ptr, 16, "0123456789abcdef") + 2);
 }
