@@ -6,11 +6,25 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:56:18 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/01/24 17:04:30 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/01/24 22:54:43 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+size_t	ft_safe_strlen(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 
 int	ft_putchar(int c)
 {
@@ -19,20 +33,12 @@ int	ft_putchar(int c)
 
 int	ft_putstr(char *s)
 {
-	int	i;
-
-	i = 0;
 	if (!s)
-		return (0);
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-	return (i);
+		return (write(1, "(null)", 6));
+	return (write(1, s, ft_safe_strlen(s)));
 }
 
-int	ft_putnbr_base(unsigned int n, unsigned int baselength, char *base)
+int	pnbase(long n, int baselength, char *base)
 {
 	int	length;
 
@@ -43,34 +49,14 @@ int	ft_putnbr_base(unsigned int n, unsigned int baselength, char *base)
 		length += ft_putchar('-');
 	}
 	if (n >= baselength)
-		ft_putnbr_base(n / baselength, baselength, base);
-	return (length += ft_putchar(base[n % baselength]));
+		length += pnbase(n / baselength, baselength, base);
+	return (length + ft_putchar(base[n % baselength]));
 }
 
-/*int	ft_bintodec(void *ptr)
-{
-	size_t	aptr;
-	size_t	i;
-	size_t	remainder;
-	size_t	res;
-
-	aptr = &ptr;
-	res = 0;
-	i = 1;
-	while (aptr > 0)
-	{
-		remainder = aptr % 10;
-		res += remainder * i;
-		aptr /= 10;
-		i *= 2;
-	}
-	return (res);
-}*/
-
-int	ft_print_ptr(void *ptr)
+int	ft_print_ptr(unsigned long ptr)
 {
 	if (!ptr)
 		return (ft_putstr("(nil)"));
 	ft_putstr("0x");
-	return (ft_putnbr_base((unsigned long) ptr, 16, "0123456789abcdef") + 2);
+	return (pnbase(ptr, 16, "0123456789abcdef") + 2);
 }

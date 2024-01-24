@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:56:28 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/01/24 17:11:02 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/01/24 22:56:14 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,21 @@ int	check_format(char c, va_list args)
 	else if (c == 's') //string
 		return (ft_putstr(va_arg(args, char *)));
 	else if (c == 'p') //void *ptr in hexa
-		return (ft_print_ptr(va_arg(args, void *)));
+		return (ft_print_ptr(va_arg(args, unsigned long)));
 	else if (c == 'd') //decimal
-		return (ft_putnbr_base(va_arg(args, unsigned int), 10, "0123456789"));
+		return (pnbase(va_arg(args, int), 10, "0123456789"));
 	else if (c == 'i') //int
-		return (ft_putnbr_base(va_arg(args, unsigned int), 10, "0123456789"));
+		return (pnbase(va_arg(args, int), 10, "0123456789"));
 	else if (c == 'u') //unsigned decimal
-		return (ft_putnbr_base(va_arg(args, unsigned int), 10, "0123456789"));
+		return (pnbase(va_arg(args, unsigned int), 10, "0123456789"));
 	else if (c == 'x') //hexa lowercase
-		return (ft_putnbr_base(va_arg(args, unsigned int), 16, "0123456789abcdef"));
+		return (pnbase(va_arg(args, unsigned int), 16, "0123456789abcdef"));
 	else if (c == 'X') //hexa uppercase
-		return (ft_putnbr_base(va_arg(args, unsigned int), 16, "0123456789ABCDEF"));
+		return (pnbase(va_arg(args, unsigned int), 16, "0123456789ABCDEF"));
 	else if (c == '%') //print '%'
 		return (ft_putchar('%'));
 	return (0);
 }
-
 
 
 int	ft_printf(const char *format, ...)
@@ -60,9 +59,26 @@ int	ft_printf(const char *format, ...)
 	return (length);
 }
 
-int main()
+/*int main()
 {
-	int a = ft_printf("%c %c.\n", 0, '0');
-	int b = printf("%c %c.\n", 0, '0');
-	printf("%d\n%d\n", a, b);
-}
+	int a = ft_printf("%d", -1);
+	printf(" => %d\n", a);
+	int b = printf("%d", -1);
+	printf(" => %d\n", b);
+	int c = ft_printf("%d", -11);
+	printf(" => %d\n", c);
+	int d = printf("%d", -11);
+	printf(" => %d\n", d);
+	int e = ft_printf("%d", -100);
+	printf(" => %d\n", e);
+	int f = printf("%d", -100);
+	printf(" => %d\n", f);
+	int g = ft_printf("%d", 16);
+	printf(" => %d\n", g);
+	int h = printf("%d", 16);
+	printf(" => %d\n", h);
+	int i = ft_printf("%d", 9);
+	printf(" => %d\n", i);
+	int j = printf("%d", 9);
+	printf(" => %d\n", j);
+}*/
