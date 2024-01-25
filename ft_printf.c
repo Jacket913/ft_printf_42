@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:56:28 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/01/24 22:56:14 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/01/25 00:57:21 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_format(char c, va_list args)
 	else if (c == 's') //string
 		return (ft_putstr(va_arg(args, char *)));
 	else if (c == 'p') //void *ptr in hexa
-		return (ft_print_ptr(va_arg(args, unsigned long)));
+		return (ft_print_ptr(va_arg(args, void *)));
 	else if (c == 'd') //decimal
 		return (pnbase(va_arg(args, int), 10, "0123456789"));
 	else if (c == 'i') //int
