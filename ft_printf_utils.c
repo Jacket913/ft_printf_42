@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:56:18 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/01/25 01:02:29 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/01/25 01:29:50 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ size_t	ft_safe_strlen(char *str)
 	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
+	while (str[i])
 		i++;
-	}
 	return (i);
 }
 
