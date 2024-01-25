@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:56:18 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/01/25 01:29:50 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/01/25 14:17:04 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,6 @@ int	put_ptr(unsigned long n, unsigned long baselength, char *base)
 	unsigned long	length;
 
 	length = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		length += ft_putchar('-');
-	}
 	if (n >= baselength)
 		length += pnbase(n / baselength, baselength, base);
 	return (length + ft_putchar(base[n % baselength]));
